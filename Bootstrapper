@@ -1,7 +1,18 @@
+import plotly.plotly as py
+import plotly.graph_objs as go
 import random
 
 numbers = [1,5,2,2,20,20,5,3]
 totalcycles = 20
+
+numberdata = [
+    go.Bar(
+	##x=[this,that,this]
+        y=numbers
+    )
+]
+plot_url = py.plot(numberdata, filename='basic-bar')
+
 
 avg = sum(numbers) / len(numbers)
 print ("Original Dataset:")
@@ -28,6 +39,15 @@ def boot_strapper():
     result = sum(means) / len(means)
     print ("\nBootstrapped Mean:")
     print (result)
+
+bootdata = [
+    go.Bar(
+	##x=[this,that,this]
+        y=means
+    )
+]
+plot_url = py.plot(bootdata, filename='basic-bar')
+
 
 print (boot_strapper())
 
