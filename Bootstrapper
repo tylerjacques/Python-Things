@@ -1,18 +1,18 @@
-import plotly.plotly as py
-import plotly.graph_objs as go
-import random
+##import plotly.plotly as py
+##import plotly.graph_objs as go
 
-numbers = [1,5,2,2,20,20,5,3]
-totalcycles = 20
-
-numberdata = [
+##numberdata = [
     go.Bar(
 	##x=[this,that,this]
         y=numbers
     )
 ]
-plot_url = py.plot(numberdata, filename='basic-bar')
+##plot_url = py.plot(numberdata, filename='basic-bar')
 
+
+import random
+numbers = [1,5,2,2,20,20,5,3]
+totalcycles = 20
 
 avg = sum(numbers) / len(numbers)
 print ("Original Dataset:")
@@ -46,10 +46,9 @@ bootdata = [
         y=means
     )
 ]
-plot_url = py.plot(bootdata, filename='basic-bar')
-
 
 print (boot_strapper())
 
+##plot_url = py.plot(bootdata, filename='basic-bar')
 ##To do - Distribution charts 
 ##Import dataset from CSV file - substitute for 'numbers'
