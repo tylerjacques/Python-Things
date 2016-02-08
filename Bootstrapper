@@ -1,18 +1,14 @@
-##import plotly.plotly as py
-##import plotly.graph_objs as go
+import plotly.plotly as py
+import plotly.graph_objs as go
 
-##numberdata = [
-    go.Bar(
-	##x=[this,that,this]
-        y=numbers
-    )
-]
-##plot_url = py.plot(numberdata, filename='basic-bar')
-
+import numpy as np
 
 import random
-numbers = [1,5,2,2,20,20,5,3]
-totalcycles = 20
+
+numbers = open("numbers.csv").read().split()
+numbers = list(map(int, numbers))
+
+totalcycles = 1000
 
 avg = sum(numbers) / len(numbers)
 print ("Original Dataset:")
@@ -31,24 +27,22 @@ def boot_strapper():
             dataset.append(rand)
             setsize -= 1
         mean = (sum(dataset) / len(numbers))
-        means.append(mean)
+        means.append(round(mean,0))
         cycles -= 1
-        print (dataset)
+
     print ("\nGenerated Means:")
     print (means)
     result = sum(means) / len(means)
     print ("\nBootstrapped Mean:")
     print (result)
 
-bootdata = [
-    go.Bar(
-	##x=[this,that,this]
-        y=means
-    )
-]
-
 print (boot_strapper())
 
-##plot_url = py.plot(bootdata, filename='basic-bar')
-##To do - Distribution charts 
-##Import dataset from CSV file - substitute for 'numbers'
+x = means
+
+data = [
+    go.Histogram(
+        x=x
+    )
+]
+plot_url = py.plot(data, filename='basic-histogram')
